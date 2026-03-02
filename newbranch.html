@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="shortcut icon" href="assets/images/final-logo.png" type="image/x-icon"/>
+  <title>New Branch – Unique Public School Bidar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/main.css"/>
+  <link rel="stylesheet" href="assets/css/branch-pg.css"/>
+</head>
+<body>
+  <div id="nav-root"></div>
+
+  <div class="page-banner">
+    <div class="breadcrumb-bar">
+      <a href="index.html">Home</a><span>/</span>
+      <span style="color:rgba(255,255,255,0.7);">New Branch</span>
+    </div>
+    <h1>🚀 <em>Exciting</em> News!</h1>
+    <p>Unique Public School is expanding — a new chapter begins</p>
+  </div>
+
+  <!-- Hero announcement -->
+  <section class="branch-hero">
+    <div class="branch-bg" style="background-image:url('assets/images/newbranch.png')"></div>
+    <div class="branch-overlay"></div>
+    <div class="container">
+      <div class="branch-announce" data-reveal>
+        <div class="ba-badge">🌟 Coming Soon</div>
+        <h2>A New Branch<br/>is <em>On The Way</em></h2>
+        <p>We are thrilled to announce the expansion of Unique Public School! A brand-new branch is being planned to bring our quality education to more students and families in the region.</p>
+
+        <!-- Countdown -->
+        <div class="countdown-wrap">
+          <div class="cd-title">Opening in approximately:</div>
+          <div class="countdown" id="countdown">
+            <div class="cd-unit"><span id="cdYears">2</span><label>Years</label></div>
+            <div class="cd-dot">:</div>
+            <div class="cd-unit"><span id="cdMonths">00</span><label>Months</label></div>
+            <div class="cd-dot">:</div>
+            <div class="cd-unit"><span id="cdDays">00</span><label>Days</label></div>
+          </div>
+        </div>
+
+        <a href="index.html#contact" class="btn-gold" style="font-size:15px;padding:14px 32px;">
+          Get Notified →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What to expect -->
+  <section class="section-pad">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:56px;" data-reveal>
+        <div class="label">Coming Soon</div>
+        <h2>What to <em>Expect</em></h2>
+        <p style="color:var(--gray-500);margin-top:10px;">The new branch will carry forward our legacy with even better facilities</p>
+      </div>
+      <div class="expect-grid">
+        <div class="exp-card" data-reveal data-reveal-delay="1">
+          <div class="exp-icon">🏫</div>
+          <h3>Modern Campus</h3>
+          <p>A purpose-built, spacious campus designed for 21st-century learning with smart classrooms and open spaces</p>
+        </div>
+        <div class="exp-card" data-reveal data-reveal-delay="2">
+          <div class="exp-icon">💻</div>
+          <h3>Advanced Labs</h3>
+          <p>State-of-the-art computer labs, science labs, and digital learning facilities</p>
+        </div>
+        <div class="exp-card" data-reveal data-reveal-delay="3">
+          <div class="exp-icon">🏟️</div>
+          <h3>Sports Complex</h3>
+          <p>Expanded sports facilities including an indoor gym, swimming pool, and multiple courts</p>
+        </div>
+        <div class="exp-card" data-reveal data-reveal-delay="1">
+          <div class="exp-icon">📚</div>
+          <h3>Enhanced Library</h3>
+          <p>A larger, fully digital library with an extensive collection and reading zones</p>
+        </div>
+        <div class="exp-card" data-reveal data-reveal-delay="2">
+          <div class="exp-icon">🎭</div>
+          <h3>Auditorium</h3>
+          <p>A dedicated performance auditorium for cultural events, dramas, and competitions</p>
+        </div>
+        <div class="exp-card" data-reveal data-reveal-delay="3">
+          <div class="exp-icon">🌿</div>
+          <h3>Green Campus</h3>
+          <p>Eco-friendly design with gardens, outdoor learning spaces, and solar panels</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter signup -->
+  <section class="section-pad-sm" style="background:var(--off-white); text-align:center;">
+    <div class="container" data-reveal>
+      <div class="newsletter-box">
+        <h3>Stay Updated</h3>
+        <p>Be the first to know about our new branch launch, admissions, and special announcements</p>
+        <form class="nl-form" onsubmit="nlSubmit(event)">
+          <input type="tel" placeholder="Your WhatsApp Number" required/>
+          <button type="submit" class="btn-gold">Notify Me →</button>
+        </form>
+        <div class="nl-success" id="nlOk">✅ You're on the list! We'll reach out soon.</div>
+        <p class="nl-alt">Or <a href="https://wa.me/919449303699?text=I%20want%20updates%20about%20your%20new%20branch" target="_blank">WhatsApp us directly</a> for updates</p>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-root"></div>
+  <script src="assets/js/shared.js"></script>
+  <script>
+    injectNav('nav-root');
+    injectFooter('footer-root');
+
+    // Simple countdown — target approx 2 years from now
+    const target = new Date();
+    target.setFullYear(target.getFullYear() + 2);
+    function updateCD() {
+      const now = new Date();
+      const diff = target - now;
+      if (diff <= 0) return;
+      const days = Math.floor(diff / 864e5);
+      const months = Math.floor(days / 30);
+      const years = Math.floor(months / 12);
+      document.getElementById('cdYears').textContent = years;
+      document.getElementById('cdMonths').textContent = String(months % 12).padStart(2,'0');
+      document.getElementById('cdDays').textContent = String(days % 30).padStart(2,'0');
+    }
+    updateCD(); setInterval(updateCD, 3600000);
+
+    function nlSubmit(e) {
+      e.preventDefault();
+      document.getElementById('nlOk').style.display = 'block';
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
