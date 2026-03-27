@@ -14,7 +14,7 @@ function injectNav(containerId) {
   <nav class="navbar" id="mainNav">
     <div class="nav-inner">
       <a href="index.html" class="nav-brand">
-        <div class="nav-logo-icon">UPS</div>
+        <img src="assets/images/final-logo.png" alt="UPS Logo" class="nav-logo-icon" style="width:45px;height:45px;object-fit:contain;background:none;box-shadow:none;border-radius:0;border:none;"/>
         <div class="nav-logo-text">
           <div class="name">Unique Public School</div>
           <div class="place">Bidar, Karnataka</div>
@@ -155,6 +155,34 @@ function initNav() {
   window.addEventListener('scroll', () => {
     mainNav?.classList.toggle('scrolled', window.scrollY > 40);
   });
+
+  // Dropdown fix for touch/click reliability
+  const dropdowns = document.querySelectorAll('.dropdown-btn');
+  dropdowns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const parent = btn.parentElement;
+      parent.classList.toggle('open');
+    });
+  });
+
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.nav-dropdown.open').forEach(dd => dd.classList.remove('open'));
+  });
+
+  // Force dropdown visibility when 'open'
+  const style = document.createElement('style');
+  style.innerHTML = `
+    .nav-dropdown.open .dropdown-menu-custom {
+      display: flex !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateY(0) !important;
+      pointer-events: auto !important;
+    }
+  `;
+  document.head.appendChild(style);
 }
 
 // Scroll reveal

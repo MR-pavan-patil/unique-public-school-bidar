@@ -1,7 +1,9 @@
 /* ── HERO ── */
 .hero {
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--navy) 0%, #16357a 55%, #0e2654 100%);
+  background: 
+    linear-gradient(135deg, rgba(8,23,54,0.85) 0%, rgba(22,53,122,0.7) 55%, rgba(14,38,84,0.85) 100%),
+    url('../images/school image.jpg') center/cover no-repeat;
   display: flex; align-items: center; position: relative; overflow: hidden;
   padding: 120px 0 80px;
 }

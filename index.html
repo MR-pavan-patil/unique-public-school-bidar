@@ -268,21 +268,21 @@
             <div class="form-row">
               <div class="fgroup">
                 <label>Parent's Name *</label>
-                <input type="text" placeholder="Your full name" required/>
+                <input type="text" name="parentName" placeholder="Your full name" required/>
               </div>
               <div class="fgroup">
                 <label>Child's Name *</label>
-                <input type="text" placeholder="Child's full name" required/>
+                <input type="text" name="childName" placeholder="Child's full name" required/>
               </div>
             </div>
             <div class="form-row">
               <div class="fgroup">
                 <label>Phone Number *</label>
-                <input type="tel" placeholder="+91 XXXXX XXXXX" required/>
+                <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required/>
               </div>
               <div class="fgroup">
                 <label>Applying For *</label>
-                <select required>
+                <select name="applyClass" required>
                   <option value="">Select Class</option>
                   <option>Pre-Nursery / Nursery</option>
                   <option>LKG / UKG</option>
@@ -294,7 +294,7 @@
             </div>
             <div class="fgroup">
               <label>Message</label>
-              <textarea placeholder="Any questions or special requirements..." rows="4"></textarea>
+              <textarea name="message" placeholder="Any questions or special requirements..." rows="4"></textarea>
             </div>
             <button type="submit" class="btn-gold" style="width:100%;justify-content:center;font-size:15px;padding:15px;">
               Submit Enquiry →
@@ -316,8 +316,20 @@
 
     function submitForm(e) {
       e.preventDefault();
+      
+      const form = e.target;
+      const data = new FormData(form);
+      const url = "YOUR_GOOGLE_SCRIPT_WEB_APP_URL"; // PASTE YOUR SCRIPT URL HERE
+      
+      // Show success message tentatively while request is sent
       document.getElementById('formOk').style.display = 'block';
-      e.target.reset();
+      
+      fetch(url, { method: 'POST', body: data })
+        .then(res => res.json())
+        .then(out => console.log('Success:', out))
+        .catch(err => console.error('Error:', err));
+      
+      form.reset();
       setTimeout(() => document.getElementById('formOk').style.display = 'none', 6000);
     }
   </script>
