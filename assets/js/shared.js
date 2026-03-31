@@ -124,7 +124,7 @@ function injectFooter(containerId) {
           </div>
           <div class="footer-contact-item">
             <span class="icon">📞</span>
-            <p>+91 70196 36947<br>+91 94498 17169<br>+91 81475 21888</p>
+            <p>+91 7975910661 <br>+91 7019636947 <br>+91 9449303699 <br>+91 9449817169</p>
           </div>
           <div class="footer-contact-item">
             <span class="icon">✉️</span>
@@ -145,7 +145,7 @@ function injectFooter(containerId) {
 function initNav() {
   const hamburger = document.getElementById('hamburger');
   const mobileNav = document.getElementById('mobileNav');
-  const mainNav   = document.getElementById('mainNav');
+  const mainNav = document.getElementById('mainNav');
 
   hamburger?.addEventListener('click', () => {
     hamburger.classList.toggle('open');
